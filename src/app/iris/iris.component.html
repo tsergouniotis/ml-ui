@@ -1,0 +1,7 @@
+<div>
+  <li *ngFor="let datum of dataset" (click)="onSelect(datum)">
+    <span [class.selected]="datum === selectedDatum">{{datum.sepalLength}}</span>
+  </li>
+</div>
+
+<iris-detail [datum]="selectedDatum"></iris-detail>
