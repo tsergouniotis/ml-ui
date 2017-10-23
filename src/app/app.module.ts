@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { IrisComponent } from './iris/iris.component';
 import { IrisDetailComponent } from './iris-detail/iris-detail.component';
 
 import { RouterModule, Routes }   from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
@@ -22,18 +22,17 @@ import { BarComponent } from './bar/bar.component';
 import { ScatterComponent } from './scatter/scatter.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard',  component: DashboardComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home',  component: HomeComponent },
   { path: 'iris', component: IrisComponent }
 ];
-
 
 @NgModule({
   declarations: [
     AppComponent,
     IrisComponent,
     IrisDetailComponent,
-    DashboardComponent,
+    HomeComponent,
     HeaderComponent,
     FooterComponent,
     MenuComponent,

@@ -1,0 +1,10 @@
+:host /deep/ .axis path,
+:host /deep/ .axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+:host /deep/ .axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
