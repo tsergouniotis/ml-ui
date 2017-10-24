@@ -7,23 +7,21 @@ import { AppComponent } from './app.component';
 import { IrisComponent } from './iris/iris.component';
 import { IrisDetailComponent } from './iris-detail/iris-detail.component';
 
-import { RouterModule, Routes }   from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { MainComponent } from './main/main.component';
 import { CardComponent } from './card/card.component';
-import { GraphComponent } from './graph/graph.component';
-import { ChartComponent } from './chart/chart.component';
-import { HistogramComponent } from './histogram/histogram.component';
-import { PieComponent } from './pie/pie.component';
-import { BarComponent } from './bar/bar.component';
-import { ScatterComponent } from './scatter/scatter.component';
+
+
+import { ChartsModule } from '../charts/charts.module';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home',  component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'iris', component: IrisComponent }
 ];
 
@@ -37,17 +35,12 @@ const routes: Routes = [
     FooterComponent,
     MenuComponent,
     MainComponent,
-    CardComponent,
-    GraphComponent,
-    ChartComponent,
-    HistogramComponent,
-    PieComponent,
-    BarComponent,
-    ScatterComponent
+    CardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ChartsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

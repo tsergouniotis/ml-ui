@@ -1,0 +1,13 @@
+:host /deep/ path {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+:host /deep/ .axis path,
+
+:host /deep/ .axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
