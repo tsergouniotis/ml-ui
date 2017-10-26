@@ -19,7 +19,7 @@ export class IrisComponent implements OnInit {
 
   ngOnInit() {
     var self = this;
-    self.irisService.getDataSetSlowly().then(f=>self.dataset=f);
+    self.irisService.getDataSet().then(f=>self.dataset=f);
   }
 
   onSelect(datum:Iris){

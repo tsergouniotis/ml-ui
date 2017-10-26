@@ -1,28 +1,33 @@
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Iris } from './iris';
-
-const IRIS_DATA_SET: Iris[] = [
-  {petaLength:1,petalWidth:1,sepalLength:1,sepalWidth:1},
-  {petaLength:2,petalWidth:2,sepalLength:2,sepalWidth:2},
-  {petaLength:3,petalWidth:3,sepalLength:3,sepalWidth:3}
-];
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class IrisService {
 
-  dataset:Iris[] = IRIS_DATA_SET;
+  constructor(private http: Http) { }
 
-  constructor() { }
-
-  getDataSet():Promise<Iris[]>{
-    return Promise.resolve(IRIS_DATA_SET);
+  _getDataSet(): Promise<Iris[]> {
+    return new Promise(resolve => {
+      return this.http.get('http://192.168.99.100:8080/iris').map(response => {
+        return response;
+      });
+    });
   }
 
-  getDataSetSlowly(): Promise<Iris[]> {
-  return new Promise(resolve => {
-    // Simulate server latency with 2 second delay
-    setTimeout(() => resolve(this.getDataSet()), 2000);
-  });
-}
+  getDataSet(): Promise<Iris[]> {
+    return this.http.get('http://192.168.99.100:8080/iris')
+      .toPromise()
+      .then(response => {
+        return response.json() as Iris[];
+      })
+      .catch(this.handleError);
+  }
 
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
+  }
 }
